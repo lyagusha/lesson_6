@@ -1,4 +1,4 @@
--module(simple_handler).
+-module(example_4_handler).
 
 -export([handle/1]).
 

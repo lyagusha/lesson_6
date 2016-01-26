@@ -1,4 +1,4 @@
--module(process_6).
+-module(example_6).
 
 %% API
 -export([start/1]).
@@ -18,7 +18,7 @@
 
 %% API
 start(Module) ->
-    io:format("Starting process_6~n"),
+    io:format("Starting example_6~n"),
     State = #state{handler = Module},
     spawn(?MODULE, process_init, [State]).
 

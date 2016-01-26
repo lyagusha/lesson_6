@@ -1,4 +1,4 @@
--module(process_4).
+-module(example_4).
 
 -export([start/1]).
 -export([stop/1]).
@@ -9,7 +9,7 @@
 }).
 
 start(Module) ->
-    io:format("Starting process_4~n"),
+    io:format("Starting example_4~n"),
     State = #state{handler = Module},
     spawn(?MODULE, process_loop, [State]).
 

@@ -1,11 +1,11 @@
--module(process_3).
+-module(example_3).
 
 -export([start/0]).
 -export([stop/1]).
 -export([process_loop/0]).
 
 start() ->
-    io:format("Starting process_3~n"),
+    io:format("Starting example_3~n"),
     spawn(?MODULE, process_loop, []).
 
 stop(Pid) ->

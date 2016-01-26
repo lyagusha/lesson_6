@@ -1,11 +1,11 @@
--module(process_2).
+-module(example_2).
 
 -export([start/0]).
 -export([process_loop/0]).
 
 start() ->
-    io:format("Starting process_2~n"),
-    spawn(process_2, process_loop, []).
+    io:format("Starting example_2~n"),
+    spawn(example_2, process_loop, []).
 
 process_loop() ->
     receive

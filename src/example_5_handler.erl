@@ -1,4 +1,4 @@
--module(state_handler).
+-module(example_5_handler).
 
 -export([init/0]).
 -export([handle/2]).

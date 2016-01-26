@@ -1,6 +1,6 @@
--module(super_handler).
+-module(example_6_handler).
 
--behavior(process_6).
+-behavior(example_6).
 
 -export([init/0]).
 -export([handle_call/2]).
