@@ -3,9 +3,9 @@
 -export([handle/1]).
 
 handle(Msg) ->
-    case Msg of
+    _ = case Msg of
         {ping, Pid} ->
-            io:format("~p receive ping~n", [self()]),
+            ok = io:format("~p receive ping~n", [self()]),
             Pid ! pong;
         _ ->
             wrong_message

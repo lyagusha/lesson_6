@@ -12,7 +12,7 @@
 
 %% API
 start(Module) ->
-    io:format("Starting example_5~n"),
+    ok = io:format("Starting example_5~n"),
     State = #state{handler = Module},
     spawn(?MODULE, process_init, [State]).
 

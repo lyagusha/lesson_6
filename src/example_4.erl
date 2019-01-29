@@ -9,7 +9,7 @@
 }).
 
 start(Module) ->
-    io:format("Starting example_4~n"),
+    ok = io:format("Starting example_4~n"),
     State = #state{handler = Module},
     spawn(?MODULE, process_loop, [State]).
 
