@@ -18,7 +18,7 @@
 
 %% API
 start(Module) ->
-    io:format("Starting example_6~n"),
+    ok = io:format("Starting example_6~n"),
     State = #state{handler = Module},
     spawn(?MODULE, process_init, [State]).
 
@@ -26,14 +26,14 @@ stop(Pid) ->
     Pid ! stop.
 
 call(Name, Msg) ->
-    Name ! {call, self(), Msg},
+    _ = Name ! {call, self(), Msg},
     receive
         {result, Res} ->
             Res
     end.
 
 cast(Name, Msg) ->
-    Name ! {cast, Msg},
+    _ = Name ! {cast, Msg},
     ok.
 
 process_init(State = #state{handler = Mod}) ->
@@ -45,7 +45,7 @@ process_loop(State = #state{handler = Mod, handler_state = HandlerState}) ->
     receive
         {call, From, Msg} ->
             {ok, Result, HandlerState2} = Mod:handle_call(Msg, HandlerState),
-            From ! {result, Result},
+            _ = From ! {result, Result},
             process_loop(State#state{handler_state = HandlerState2});
         {cast, Msg} ->
             {ok, HandlerState2} = Mod:handle_cast(Msg, HandlerState),

@@ -4,13 +4,13 @@
 -export([process_loop/0]).
 
 start() ->
-    io:format("Starting example_2~n"),
+    ok = io:format("Starting example_2~n"),
     spawn(example_2, process_loop, []).
 
 process_loop() ->
-    receive
+    _ = receive
         {ping, Pid} = Msg ->
-            io:format("~p: receive ~p~n", [self(), Msg]),
+            ok = io:format("~p: receive ~p~n", [self(), Msg]),
             Pid ! pong;
         Msg ->
             io:format("~p: receive wrong message ~p~n", [self(), Msg])

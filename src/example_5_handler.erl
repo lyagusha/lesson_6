@@ -7,9 +7,9 @@ init()->
     {ok, undefined}.
 
 handle({ping, Pid}, State) ->
-    Pid ! pong,
-    io:format("~p receive ping~n", [self()]),
+    _ = Pid ! pong,
+    ok = io:format("~p receive ping~n", [self()]),
     {ok, State};
 handle(_, State) ->
-    io:format("~p receive wrong _message~n", [self()]),
+    ok = io:format("~p receive wrong _message~n", [self()]),
     {ok, State}.

@@ -10,11 +10,11 @@ init()->
     {ok, undefined}.
 
 handle_call(ping, State) ->
-    io:format("~p receive ping~n", [self()]),
+    ok = io:format("~p receive ping~n", [self()]),
     Result = pong,
     {ok, Result, State};
 handle_call(_, State) ->
-    io:format("~p receive wrong_message~n", [self()]),
+    ok = io:format("~p receive wrong_message~n", [self()]),
     {ok, wrong_message, State}.
 
 handle_cast(_Msg, State) ->
