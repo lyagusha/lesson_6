@@ -25,15 +25,15 @@ start(Module) ->
 stop(Pid) ->
     Pid ! stop.
 
-call(Name, Msg) ->
-    _ = Name ! {call, self(), Msg},
+call(Pid, Msg) ->
+    _ = Pid ! {call, self(), Msg},
     receive
         {result, Res} ->
             Res
     end.
 
-cast(Name, Msg) ->
-    _ = Name ! {cast, Msg},
+cast(Pid, Msg) ->
+    _ = Pid ! {cast, Msg},
     ok.
 
 process_init(State = #state{handler = Mod}) ->
